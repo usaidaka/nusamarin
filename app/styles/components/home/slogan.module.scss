@@ -1,0 +1,35 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 30vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include mixins.apply-at-xl-size {
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+  }
+
+  h2 {
+    font-size: 15px;
+    @include mixins.apply-at-xl-size {
+      font-size: 30px;
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    @include mixins.apply-at-xl-size {
+      font-size: 50px;
+    }
+  }
+}

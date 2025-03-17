@@ -1,0 +1,169 @@
+@use "../base.scss";
+@use "../media-mixins.scss" as mixins;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #0d1b2a;
+  color: white;
+  z-index: 99;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #fca311;
+        }
+      }
+    }
+  }
+
+  /* Dropdown untuk desktop */
+  .dropdown {
+    position: relative;
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      padding: 10px;
+      width: 200px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+
+      a {
+        display: block;
+        color: black;
+        padding: 5px 0;
+      }
+
+      p {
+        font-size: 12px;
+        color: gray;
+      }
+    }
+
+    &:hover .dropdown-menu {
+      display: block;
+    }
+  }
+
+  /* Styling untuk Accordion */
+
+  /* CTA Button */
+  .cta {
+    display: none;
+
+    @include mixins.apply-at-md-size {
+      width: fit-content;
+      .toolbar {
+        display: flex;
+        flex-direction: row;
+
+        .toggle {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          cursor: pointer;
+          gap: 6px;
+
+          .avatar {
+            width: 1.2rem;
+            height: 1.2rem;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            margin-right: 0.5rem;
+          }
+
+          .lang {
+            font-family: Poppins, Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      display: block;
+    }
+  }
+
+  /* Burger Menu */
+  .burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+
+    .bar {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      margin: 3px 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .bar-active {
+      background-color: #fca311;
+    }
+  }
+
+  /* Responsive Design */
+  @include mixins.apply-at-xs-size {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #0d1b2a;
+      padding: 15px 0;
+      text-align: start;
+      height: fit-content;
+      gap: 10px;
+    }
+
+    .nav-active {
+      display: flex;
+    }
+
+    .burger {
+      display: flex;
+    }
+  }
+
+  @include mixins.apply-at-md-size {
+    .nav-links {
+      display: flex;
+      position: static;
+      flex-direction: row;
+      background: none;
+      width: auto;
+      padding: 0;
+    }
+
+    .burger {
+      display: none;
+    }
+  }
+}
