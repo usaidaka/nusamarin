@@ -6,7 +6,7 @@
   padding-right: 20px;
   height: 30vh;
   width: 100%;
-  color: white;
+  color: #e8b204;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,14 +20,14 @@
   }
 
   h2 {
-    font-size: 15px;
+    font-size: 16px;
     @include mixins.apply-at-xl-size {
       font-size: 30px;
     }
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 12px;
     @include mixins.apply-at-xl-size {
       font-size: 50px;
     }

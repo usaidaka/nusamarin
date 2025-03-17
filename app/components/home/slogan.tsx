@@ -5,8 +5,8 @@ const Slogan = () => {
   return (
     <div className={classes.main}>
       <div>
-        <h2>Together with fishermen, brand partners and activists</h2>
-        <h1>We rid the oceans, one piece of trash at time.</h1>
+        <h2>NUSAMARIN envisions a long-term growth strategy</h2>
+        <h1>Leading capital integrator driving coastal investment</h1>
       </div>
     </div>
   );
