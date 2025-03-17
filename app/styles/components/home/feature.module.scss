@@ -3,7 +3,7 @@
 
 .main {
   background: linear-gradient(to bottom, #0d1b2a, rgba(0, 0, 0, 0)),
-    url("/barb.jpg");
+    url("/backgroundImage-1.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,6 +63,15 @@
 
     .description {
       padding: 20px;
+      h1 {
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      h3 {
+        font-size: 14px;
+      }
+
       @include mixins.apply-at-xl-size {
         height: 100%;
         width: 50%;
@@ -72,10 +81,11 @@
         align-items: start;
 
         h1 {
+          font-weight: bold;
           font-size: 50px;
         }
 
-        h3{
+        h3 {
           font-size: 20px;
         }
       }
@@ -86,14 +96,14 @@
 .first-feature {
   .image {
     img {
-      width: 80%;   
+      width: 80%;
       @include mixins.apply-at-xl-size {
-        width: 50%;   
+        width: 50%;
       }
-     }
+    }
   }
 }
 
 .second-feature {
-  background: linear-gradient(to top, #0d1b2a, rgba(0, 0, 0, 0)),
+  background: linear-gradient(to top, #0d1b2a, rgba(0, 0, 0, 0));
 }

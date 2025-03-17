@@ -8,8 +8,7 @@ const Footer = () => {
       <div className={classes.container}>
         <div className={classes.logoSection}>
           <div className={classes.logo}>
-            {/* <img src="/logo.png" alt="Samudra Logo" /> */}
-            <h1>AQUATIC DIRECT</h1>
+            <img src="/logo.png" alt="nusamarin" />
           </div>
           <p className={classes.tagline}>MEGASCALE SEAWEED CARBON CAPTURE</p>
         </div>

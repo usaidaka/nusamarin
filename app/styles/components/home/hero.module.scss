@@ -4,11 +4,13 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
   display: flex;
+  height: 80vh;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  @include mixins.apply-at-md-size {
+  }
 
   .overlay {
     position: absolute;
@@ -33,14 +35,27 @@
   }
 
   .content {
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 2;
     color: white;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 
-    h1 {
+    img {
+      width: 70%;
       @include mixins.apply-at-xl-size {
-        font-size: 3rem;
+        width: 80%;
+      }
+    }
+
+    h1 {
+      font-size: 0.7rem;
+      margin: 0.5rem 0;
+      @include mixins.apply-at-xl-size {
+        font-size: 2rem;
         margin: 0.5rem 0;
       }
     }

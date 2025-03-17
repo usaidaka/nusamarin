@@ -34,7 +34,9 @@ const Navbar = () => {
   return (
     <>
       <nav className={classes.navbar}>
-        <div className={classes.logo}>Aquatic Direct</div>
+        <div className={classes.logo}>
+          <img src="/logo.png" alt="nusamarin" />
+        </div>
         <div className={classes.burger} onClick={() => setIsOpen(!isOpen)}>
           <RxHamburgerMenu />
         </div>
@@ -107,9 +109,16 @@ const Navbar = () => {
             <a href="#">Shop</a>
           </li>
         </ul>
-        <div />
-        {/* <div className={classes.cta}>
-        <div className={classes.toolbar}>
+
+        <div className={classes.cta}>
+          <img
+            src="/deliver-quality.png"
+            alt=""
+            className={classes["tag-line"]}
+          />
+        </div>
+
+        {/* <div className={classes.toolbar}>
           <div
             className={classes.toggle}
             ref={menuRef}
@@ -124,8 +133,7 @@ const Navbar = () => {
           open={open}
           anchorEl={menuPosition}
           onClose={handleClose}
-        />
-      </div> */}
+        /> */}
       </nav>
     </>
   );

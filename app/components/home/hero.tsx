@@ -25,8 +25,8 @@ const Hero = () => {
         style={{ transform: `translateY(${offsetY}px)` }}
       />
       <div className={classes.content}>
-        <h1>Logo</h1>
-        <h1>On a mission to clean the Ocean</h1>
+        <img src="/logo.png" alt="nusamarin" />
+        <h1>Driving Global Investment in Coastal Economies</h1>
       </div>
     </div>
   );
