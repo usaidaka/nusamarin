@@ -86,16 +86,31 @@
       text-align: justify;
 
       @include mixins.apply-at-md-size {
-        width: 90%;
-        max-width: 100%;
-        padding: 0 20px;
-        text-align: left;
+        width: 90%; // Ubah dari 50% menjadi 100% agar lebar penuh
+        max-width: 100%; // Pastikan tidak ada batasan max-width
+        padding: 0 20px; // Atur padding agar tetap ada ruang, tetapi tidak terlalu banyak
+        text-align: left; // Supaya tidak terlalu melebar di tengah
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: start;
       }
 
+      @include mixins.apply-at-md-size {
+        h1 {
+          font-weight: bold;
+          font-size: 36px; // Sesuaikan ukuran font agar tetap responsif
+        }
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+
+      @include mixins.apply-at-xl-size {
+        width: 100%;
+        padding: 20px;
+      }
       h1 {
         font-size: 22px;
         font-weight: bold;
@@ -106,14 +121,21 @@
         font-size: 14px;
       }
 
-      @include mixins.apply-at-md-size {
+      @include mixins.apply-at-xl-size {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+
         h1 {
           font-weight: bold;
-          font-size: 36px;
+          font-size: 50px;
         }
 
         h3 {
-          font-size: 18px;
+          font-size: 20px;
         }
       }
     }
@@ -140,8 +162,7 @@
 
 .second-feature {
   background: linear-gradient(to top, #0d1b2a, rgba(0, 0, 0, 0));
-  height: 10vh !important;
-  min-height: 30vh !important;
+  min-height: 20vh !important;
   .description {
     justify-content: start !important;
     align-items: start;
