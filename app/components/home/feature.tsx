@@ -2,48 +2,36 @@ import React, { useState, useEffect } from "react";
 import classes from "../../styles/components/home/feature.module.scss";
 
 const Feature = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Pastikan kode ini hanya berjalan di client-side
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-
-    const handleResize = () => setIsMobile(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handleResize);
-
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  }, []);
-
   return (
     <div className={classes.main}>
+      <div className={classes.overlay} />
       <div className={classes["first-feature"]}>
         <div className={classes.image}>
-          <img src="/dummy1.webp" alt="" />
+          <img src="/logo.png" alt="" />
         </div>
         <div className={classes.description}>
-          <h1 suppressHydrationWarning>
-            Easy to Use, {isMobile ? "" : <br />}
-            Easy to Love
-          </h1>
+          <h1 suppressHydrationWarning>Our Company</h1>
           <h3 suppressHydrationWarning>
-            In the office or on the go, TeamPassword makes storing and
-            {isMobile ? "" : <br />}
-            sharing passwords safely a synch.
+            NUSAMARIN is a holding company integrating Southeast Asia’s coastal
+            blue economy by cultivating, consolidating, and optimizing tropical
+            resources. We aim for sustainable monetization to boost local
+            prosperity. To accelerate this vision, we seek global investment in
+            blue ocean opportunities, ensuring both profitability and climate
+            impact.
           </h3>
         </div>
       </div>
 
       <div className={classes["second-feature"]}>
-        <div className={classes.image}>
-          <img src="/dummy2.webp" alt="" />
-        </div>
+        <div className={classes.image} />
         <div className={classes.description}>
-          <h1>Ditch the spreadsheet</h1>
+          <h1>Our philosophy</h1>
           <h3 suppressHydrationWarning>
-            TeamPassword keeps all your logins safe and in-sync, so your team
-            {isMobile ? "" : <br />}
-            can get the access they need when they need it.
+            Our name reflects our philosophy. “Nusa,” from Indonesian and
+            Sanskrit, means “island,” often linked to the homeland (“tanah
+            air”), while “Marin” refers to the sea. Rooted in the archipelago,
+            we embrace the abundant land and marine resources that offer vast
+            opportunities for prosperity.
           </h3>
         </div>
       </div>

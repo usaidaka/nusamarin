@@ -3,6 +3,7 @@ import classes from "../styles/pages/home.module.scss";
 import Hero from "~/components/home/hero";
 import Slogan from "../components/home/slogan";
 import Feature from "~/components/home/feature";
+import Goals from "~/components/home/goals";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,6 +18,7 @@ const home = () => {
       <Hero />
       <Slogan />
       <Feature />
+      <Goals />
     </div>
   );
 };

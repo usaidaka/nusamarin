@@ -48,54 +48,90 @@ const Navbar = () => {
           <li>
             <a href="#">About us</a>
           </li>
+          <li>
+            <a href="#">Our thesis</a>
+          </li>
           <div suppressHydrationWarning>
             {isMobile ? (
-              <Accordion
-                sx={{
-                  width: "100%",
-                  background: "none",
-                  color: "white",
-                  boxShadow: "none",
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<MdExpandMore style={{ color: "orange" }} />}
-                >
-                  Newsroom
-                </AccordionSummary>
-                <AccordionDetails
+              <>
+                <Accordion
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 2,
-                    paddingLeft: "30px",
+                    width: "100%",
+                    background: "none",
+                    color: "white",
+                    boxShadow: "none",
                   }}
                 >
-                  {["BLOG", "CUSTOMER STORIES", "IN THE PRESS"].map((item) => (
-                    <a
-                      key={item}
-                      href="#"
-                      style={{
-                        color: "white",
-                        textDecoration: "none",
-                        fontSize: "14px",
-                      }}
-                    >
-                      {item}
-                    </a>
-                  ))}
-                </AccordionDetails>
-              </Accordion>
+                  <AccordionSummary
+                    expandIcon={<MdExpandMore style={{ color: "orange" }} />}
+                  >
+                    Solutions
+                  </AccordionSummary>
+                  <AccordionDetails
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: 2,
+                      paddingLeft: "30px",
+                    }}
+                  >
+                    {[
+                      "Sustainable Nutrient-Rich Food Resource",
+                      "Offsetting Global Carbon Footprints",
+                      "Renewable Energy For Coastal Communities",
+                      "Remarkable Tourism Escape",
+                    ].map((item) => (
+                      <a
+                        key={item}
+                        href="#"
+                        style={{
+                          color: "white",
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </AccordionDetails>
+                </Accordion>
+                <li>
+                  <a href="#">Blog</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </>
             ) : (
               <li className={classes.dropdown}>
                 <a href="#" className={classes["nav-item"]}>
-                  Newsroom ▾
+                  Solutions
+                  <MdExpandMore
+                    style={{ color: "orange", fontWeight: "bold" }}
+                  />
                 </a>
                 <div className={classes["dropdown-menu"]}>
-                  {["BLOG", "CUSTOMER STORIES", "IN THE PRESS"].map((item) => (
-                    <div key={item}>
-                      <a href="#">{item}</a>
-                      <p>Informasi terkait {item.toLowerCase()}.</p>
+                  {[
+                    {
+                      menu: "Sustainable Nutrient-Rich Food Resource",
+                      src: "/sustainability.png",
+                    },
+                    {
+                      menu: "Offsetting Global Carbon Footprints",
+                      src: "/globalCarbon.png",
+                    },
+                    {
+                      menu: "Renewable Energy For Coastal Communities",
+                      src: "/renewableEnergy.png",
+                    },
+                    {
+                      menu: "Remarkable Tourism Escape",
+                      src: "/tourismEscape.png",
+                    },
+                  ].map((item) => (
+                    <div className={classes.menu} key={item.menu}>
+                      <img src={item.src} alt={item.menu} />
+                      <a href="#">{item.menu}</a>
                     </div>
                   ))}
                 </div>

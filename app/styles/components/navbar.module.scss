@@ -46,6 +46,12 @@
   .dropdown {
     position: relative;
 
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
     .dropdown-menu {
       display: none;
       position: absolute;
@@ -53,24 +59,36 @@
       left: 0;
       background-color: white;
       padding: 10px;
-      width: 200px;
+      width: 36rem;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      text-align: start;
 
-      a {
-        display: block;
-        color: black;
-        padding: 5px 0;
-      }
+      .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
 
-      p {
-        font-size: 12px;
-        color: gray;
+        img {
+          width: 50px;
+          height: auto;
+          padding-right: 10px;
+        }
+
+        a {
+          font-size: 12px;
+          color: black;
+          text-decoration: none;
+          text-align: start;
+        }
       }
     }
 
     &:hover .dropdown-menu {
-      display: block;
+      display: grid;
     }
   }
 
@@ -80,7 +98,7 @@
   .cta {
     display: none;
 
-    @include mixins.apply-at-md-size {
+    @include mixins.apply-at-xl-size {
       width: fit-content;
       .toolbar {
         display: flex;
@@ -133,6 +151,30 @@
   }
 
   /* Responsive Design */
+  @include mixins.apply-at-md-size {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #0d1b2a;
+      padding: 15px 0;
+      text-align: start;
+      height: fit-content;
+      gap: 10px;
+    }
+
+    .nav-active {
+      display: flex;
+    }
+
+    .burger {
+      display: flex;
+    }
+  }
+
   @include mixins.apply-at-xs-size {
     .nav-links {
       display: none;
@@ -157,7 +199,7 @@
     }
   }
 
-  @include mixins.apply-at-md-size {
+  @include mixins.apply-at-xl-size {
     .nav-links {
       display: flex;
       position: static;

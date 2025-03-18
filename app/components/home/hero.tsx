@@ -6,7 +6,7 @@ const Hero = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setOffsetY(window.scrollY * 0.5); // Efek parallax (0.5 = lebih lambat)
+      setOffsetY(window.scrollY * 0.5);
     };
 
     window.addEventListener("scroll", handleScroll);

@@ -1,0 +1,83 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 110vh;
+  @include mixins.apply-at-xl-size {
+    height: 50vh;
+  }
+
+  h1 {
+    align-self: start;
+    width: 100%;
+    text-align: start;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 18px;
+
+    @include mixins.apply-at-xl-size {
+      font-size: 26px;
+    }
+  }
+
+  .cardWrapper {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+
+    @include mixins.apply-at-md-size {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.apply-at-xl-size {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      width: 100%;
+      background-color: #212e4c;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        text-align: start;
+        padding-left: 12px;
+        flex: 1;
+      }
+    }
+  }
+}
