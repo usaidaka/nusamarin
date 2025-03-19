@@ -4,6 +4,7 @@ import Hero from "~/components/home/hero";
 import Slogan from "../components/home/slogan";
 import Feature from "~/components/home/feature";
 import Goals from "~/components/home/goals";
+import Tagline from "~/components/home/tagline";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,6 +20,7 @@ const home = () => {
       <Slogan />
       <Feature />
       <Goals />
+      <Tagline />
     </div>
   );
 };

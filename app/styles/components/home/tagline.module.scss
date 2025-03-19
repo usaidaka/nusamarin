@@ -1,0 +1,104 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 1;
+  padding: 20px 20px;
+
+  @include mixins.apply-at-xl-size {
+    height: 76vh;
+    flex-direction: row;
+  }
+  align-items: center;
+  background: linear-gradient(to bottom, #0d1b2a, rgba(0, 0, 0, 0)),
+    url("/tagline.jpg");
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 100%;
+    grid-template-rows: "1fr 1fr 1fr" "1fr 1fr" "1fr";
+    @include mixins.apply-at-xl-size {
+      max-width: 50%;
+      height: 100%;
+      flex-direction: row;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #0d1b2a78;
+  }
+
+  .tagline {
+    height: 20%;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    color: #e8b204;
+    margin-bottom: 10px;
+
+    h1 {
+      @include mixins.apply-at-xl-size {
+        font-size: 80px;
+        font-weight: bold;
+        color: #e8b204;
+      }
+    }
+
+    br {
+      display: none;
+      @include mixins.apply-at-xl-size {
+        display: block;
+      }
+    }
+
+    @include mixins.apply-at-xl-size {
+      margin-bottom: 0;
+      justify-content: start;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      display: flex;
+    }
+  }
+}
+
+.cardContainer {
+  .card {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2); // Transparan putih
+    backdrop-filter: blur(10px); // Efek blur di belakang
+    -webkit-backdrop-filter: blur(10px); // Untuk kompatibilitas Safari
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 100px;
+
+    @include mixins.apply-at-xl-size {
+      min-height: 200px;
+    }
+
+    p {
+      color: #ffffff;
+    }
+  }
+}

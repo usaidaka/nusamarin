@@ -37,9 +37,7 @@ const goals = [
 const Goals = () => {
   return (
     <div className={classes.main}>
-      <h1>
-        Our six goals is to make a sustainable coastal development for All
-      </h1>
+      <h1>Our 6 Goals for Sustainable Coastal Development</h1>
       <div className={classes.cardWrapper}>
         {goals.map((goal) => (
           <div key={goal.id} className={classes.card}>

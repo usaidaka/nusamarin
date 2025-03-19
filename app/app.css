@@ -11,7 +11,7 @@ body {
   font-family: "Poppins", sans-serif;
   @apply bg-white dark:bg-gray-950;
   background-color: #0d1b2a;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 100%;
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;

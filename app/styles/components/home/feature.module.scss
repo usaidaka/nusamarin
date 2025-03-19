@@ -86,10 +86,10 @@
       text-align: justify;
 
       @include mixins.apply-at-md-size {
-        width: 90%; // Ubah dari 50% menjadi 100% agar lebar penuh
-        max-width: 100%; // Pastikan tidak ada batasan max-width
-        padding: 0 20px; // Atur padding agar tetap ada ruang, tetapi tidak terlalu banyak
-        text-align: left; // Supaya tidak terlalu melebar di tengah
+        width: 90%;
+        max-width: 100%;
+        padding: 0 20px;
+        text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -99,7 +99,7 @@
       @include mixins.apply-at-md-size {
         h1 {
           font-weight: bold;
-          font-size: 36px; // Sesuaikan ukuran font agar tetap responsif
+          font-size: 36px;
         }
 
         h3 {

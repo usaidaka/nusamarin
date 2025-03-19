@@ -11,6 +11,7 @@
   max-width: 1100px;
   margin: 0 auto;
   height: 110vh;
+  padding: 0 20px;
   @include mixins.apply-at-md-size {
     height: 50vh;
   }
@@ -20,8 +21,7 @@
     width: 100%;
     text-align: start;
     font-weight: bold;
-    margin-left: 20px;
-    font-size: 18px;
+    color: #e8b204;
 
     @include mixins.apply-at-xl-size {
       font-size: 26px;
@@ -36,7 +36,7 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
     justify-content: center;
-    padding: 20px;
+    margin-top: 20px;
     align-items: center;
 
     @include mixins.apply-at-md-size {
