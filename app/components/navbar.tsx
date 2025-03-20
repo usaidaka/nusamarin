@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { MdExpandMore } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router";
 import { SiGoogletranslate } from "react-icons/si";
 import classes from "../styles/components/navbar.module.scss";
 import MenuLanguage from "./menuLanguage";
@@ -46,7 +47,9 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <a href="#">About us</a>
+            <Link className={classes.a} to="/about">
+              About Us
+            </Link>
           </li>
           <li>
             <a href="#">Our thesis</a>

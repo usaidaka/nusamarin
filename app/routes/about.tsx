@@ -1,9 +1,11 @@
 import React from "react";
+import classes from "../styles/pages/about.module.scss";
+import Hero from "~/components/about/hero";
 
 const About = () => {
   return (
-    <div>
-      <h1>about page</h1>
+    <div className={classes.main}>
+      <Hero />
     </div>
   );
 };
