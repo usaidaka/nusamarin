@@ -1,0 +1,116 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.wrapper {
+  margin: 20px 0px;
+
+  .section {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 46px;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-underline-offset: 16px;
+    color: #e8b204;
+    margin: 20px 0px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 16px;
+    width: 100%;
+    margin: auto;
+    max-width: 1100px;
+    padding: 16px;
+    grid-auto-flow: dense;
+
+    @include mixins.apply-at-md-size {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.apply-at-xl-size {
+      max-width: 80vw;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      width: 100%;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .category {
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 4px;
+      }
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.3;
+      }
+    }
+
+    // Kartu besar
+    .large {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+
+      @include mixins.apply-at-md-size {
+        max-height: 280px;
+      }
+
+      @include mixins.apply-at-xl-size {
+        max-height: 380px;
+      }
+    }
+
+    // 🟢 Card terakhir mengisi sisi kosong di grid
+    .last {
+      @include mixins.apply-at-xl-size {
+        grid-column: span 2; // ✅ Mengisi ruang kosong di sisi kanan/kiri
+      }
+
+      @include mixins.apply-at-md-size {
+        max-height: 200px;
+      }
+
+      @include mixins.apply-at-xl-size {
+        max-height: 380px;
+      }
+    }
+  }
+}
