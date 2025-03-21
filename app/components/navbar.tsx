@@ -10,9 +10,6 @@ import MenuLanguage from "./menuLanguage";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [menuPosition, setMenuPosition] = useState<HTMLElement | null>(null);
-  const open = Boolean(menuPosition);
-  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const handleResize = useCallback(() => {
     setIsMobile(window?.matchMedia("(max-width: 768px)").matches);
@@ -24,20 +21,12 @@ const Navbar = () => {
     return () => window?.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
-  const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
-    setMenuPosition(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setMenuPosition(null);
-  };
-
   return (
     <>
       <nav className={classes.navbar}>
-        <div className={classes.logo}>
+        <Link to="/" className={classes.logo}>
           <img src="/logo.png" alt="nusamarin" />
-        </div>
+        </Link>
         <div className={classes.burger} onClick={() => setIsOpen(!isOpen)}>
           <RxHamburgerMenu />
         </div>
@@ -47,11 +36,15 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <Link className={classes.a} to="/about">
+            <Link
+              className={classes.a}
+              to="/about"
+              onClick={() => setIsOpen(!isOpen)}
+            >
               About Us
             </Link>
           </li>
-          <li>
+          <li onClick={() => setIsOpen(!isOpen)}>
             <a href="#">Our thesis</a>
           </li>
           <div suppressHydrationWarning>
@@ -92,16 +85,20 @@ const Navbar = () => {
                           textDecoration: "none",
                           fontSize: "14px",
                         }}
+                        onClick={() => setIsOpen(!isOpen)}
                       >
                         {item}
                       </a>
                     ))}
                   </AccordionDetails>
                 </Accordion>
-                <li>
+                <li onClick={() => setIsOpen(!isOpen)}>
+                  <a href="#">Sustainability</a>
+                </li>
+                <li onClick={() => setIsOpen(!isOpen)}>
                   <a href="#">Blog</a>
                 </li>
-                <li>
+                <li onClick={() => setIsOpen(!isOpen)}>
                   <a href="#">Contact</a>
                 </li>
               </>
@@ -142,10 +139,13 @@ const Navbar = () => {
             )}
           </div>
           <li>
-            <a href="#">For business</a>
+            <a href="#">Sustainability</a>
           </li>
           <li>
-            <a href="#">Shop</a>
+            <a href="#">Blog</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
           </li>
         </ul>
 
@@ -156,23 +156,6 @@ const Navbar = () => {
             className={classes["tag-line"]}
           />
         </div>
-
-        {/* <div className={classes.toolbar}>
-          <div
-            className={classes.toggle}
-            ref={menuRef}
-            onClick={handleMenuClick}
-          >
-            <SiGoogletranslate style={{ color: "#4285F4", fontSize: "28px" }} />
-            Translate
-            <MdExpandMore />
-          </div>
-        </div>
-        <MenuLanguage
-          open={open}
-          anchorEl={menuPosition}
-          onClose={handleClose}
-        /> */}
       </nav>
     </>
   );

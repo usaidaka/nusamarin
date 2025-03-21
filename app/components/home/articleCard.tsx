@@ -26,7 +26,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articles }) => {
             } ${index === articles.length - 2 ? classes.last : ""}`}
             style={{ backgroundImage: `url(${article.img})` }}
           >
-            <div className={classes.overlay}></div>
+            <div className={classes.overlay} />
             <div className={classes.content}>
               <p className={classes.category}>{article.category}</p>
               <h2 className={classes.title}>{article.title}</h2>

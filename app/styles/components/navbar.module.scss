@@ -102,6 +102,32 @@
     &:hover .dropdown-menu {
       display: grid;
     }
+
+    &:hover .dropdown-menu:hover {
+      .menu {
+        transition: background-color 0.3s ease;
+
+        &:nth-child(1):hover {
+          background-color: #ccffcd;
+          border-radius: 6px;
+        }
+
+        &:nth-child(2):hover {
+          background-color: #94ff94;
+          border-radius: 6px;
+        }
+
+        &:nth-child(3):hover {
+          background-color: #fffdcc;
+          border-radius: 6px;
+        }
+
+        &:nth-child(4):hover {
+          background-color: #ccd8ff;
+          border-radius: 6px;
+        }
+      }
+    }
   }
 
   /* Styling untuk Accordion */
