@@ -34,6 +34,7 @@ const Navbar = () => {
           className={`${classes["nav-links"]} ${
             isOpen ? classes["nav-active"] : ""
           }`}
+          aria-expanded={isOpen}
         >
           <li>
             <Link
@@ -92,15 +93,6 @@ const Navbar = () => {
                     ))}
                   </AccordionDetails>
                 </Accordion>
-                <li onClick={() => setIsOpen(!isOpen)}>
-                  <a href="#">Sustainability</a>
-                </li>
-                <li onClick={() => setIsOpen(!isOpen)}>
-                  <a href="#">Blog</a>
-                </li>
-                <li onClick={() => setIsOpen(!isOpen)}>
-                  <a href="#">Contact</a>
-                </li>
               </>
             ) : (
               <li className={classes.dropdown}>
@@ -138,13 +130,13 @@ const Navbar = () => {
               </li>
             )}
           </div>
-          <li>
+          <li onClick={() => (isMobile ? setIsOpen(!isOpen) : "")}>
             <a href="#">Sustainability</a>
           </li>
-          <li>
+          <li onClick={() => (isMobile ? setIsOpen(!isOpen) : "")}>
             <a href="#">Blog</a>
           </li>
-          <li>
+          <li onClick={() => (isMobile ? setIsOpen(!isOpen) : "")}>
             <a href="#">Contact</a>
           </li>
         </ul>
