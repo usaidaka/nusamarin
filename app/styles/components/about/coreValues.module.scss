@@ -1,0 +1,136 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  color: #bfd9f2;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include mixins.apply-at-xl-size {
+    height: 100vh;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #eaa507;
+
+    @include mixins.apply-at-xl-size {
+      font-size: 3rem;
+    }
+  }
+
+  .wrapper {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin-top: 20px;
+
+    @include mixins.apply-at-xl-size {
+      height: 70%;
+      min-height: fit-content;
+      width: 70%;
+      flex-direction: row;
+      justify-content: space-around;
+      gap: 100px;
+    }
+
+    .text,
+    .image {
+      width: 100%;
+      height: 90%;
+
+      @include mixins.apply-at-xl-size {
+        height: 100%;
+        width: 50%;
+      }
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 10;
+
+    @include mixins.apply-at-sm-size {
+      font-size: 1rem;
+    }
+
+    @include mixins.apply-at-md-size {
+      font-size: 1.2rem;
+    }
+
+    .visionWrapper {
+      .vision {
+        display: flex;
+        color: white;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    width: 300px;
+    height: 300px;
+    min-height: 300px;
+    z-index: 0;
+
+    .bgLayer {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      background-color: #416890;
+      border-radius: 10px;
+      transform: rotate(-5deg);
+      @include mixins.apply-at-md-size {
+        transform: rotate(-5deg);
+      }
+
+      @include mixins.apply-at-xl-size {
+        transform: rotate(4deg);
+      }
+    }
+
+    img {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transform: rotate(0deg);
+      transition: transform 0.3s ease-in-out;
+
+      @include mixins.apply-at-md-size {
+        transform: rotate(0deg);
+      }
+
+      @include mixins.apply-at-xl-size {
+        transform: rotate(-4deg);
+      }
+
+      &:hover {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
