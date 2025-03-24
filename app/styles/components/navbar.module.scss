@@ -46,7 +46,7 @@
       }
 
       .active {
-        color:  #fca311;
+        color: #fca311;
       }
 
       a {
@@ -211,7 +211,6 @@
       height: fit-content;
       gap: 10px;
       height: fit-content;
-      
     }
 
     .nav-active {
@@ -238,14 +237,16 @@
       text-align: start;
       height: fit-content;
       gap: 10px;
-      height: fit-content;
-      
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
 
     .nav-active {
-      transform: translateY(0);
       opacity: 1;
       visibility: visible;
+      transform: translateY(0);
     }
 
     .burger {

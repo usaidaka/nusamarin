@@ -3,15 +3,14 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { MdExpandMore } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router";
-import { useLocation } from 'react-router'
+import { useLocation } from "react-router";
 import { SiGoogletranslate } from "react-icons/si";
 import classes from "../styles/components/navbar.module.scss";
 import MenuLanguage from "./menuLanguage";
 
 const Navbar = () => {
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
 
-  console.log(pathname)
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -25,13 +24,17 @@ const Navbar = () => {
     return () => window?.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
+  const toggleNavbar = () => {
+    setIsOpen((prev) => !prev);
+  };
+
   return (
     <>
       <nav className={classes.navbar}>
         <Link to="/" className={classes.logo}>
           <img src="/logo.png" alt="nusamarin" />
         </Link>
-        <div className={classes.burger} onClick={() => setIsOpen(!isOpen)}>
+        <div className={classes.burger} onClick={toggleNavbar}>
           <RxHamburgerMenu />
         </div>
         <ul
@@ -40,22 +43,20 @@ const Navbar = () => {
           }`}
           aria-expanded={isOpen}
         >
-          <li>
+          <li onClick={() => setIsOpen(!isOpen)}>
             <Link
               className={`${classes.a}
-               ${pathname === "/about" ? classes.active : "" }`}
+               ${pathname === "/about" ? classes.active : ""}`}
               to="/about"
-              onClick={() => setIsOpen(!isOpen)}
             >
               About Us
             </Link>
           </li>
           <li onClick={() => setIsOpen(!isOpen)}>
-          <Link
-               className={`${classes.a}
-               ${pathname === "/thesis" ? classes.active : "" }`}
+            <Link
+              className={`${classes.a}
+               ${pathname === "/thesis" ? classes.active : ""}`}
               to="/thesis"
-              onClick={() => setIsOpen(!isOpen)}
             >
               Our Thesis
             </Link>
