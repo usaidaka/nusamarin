@@ -1,0 +1,100 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: #0d1b2a;
+}
+
+.circle {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff6b6b 0deg 60deg,
+    #ffa502 60deg 120deg,
+    #2ed573 120deg 180deg,
+    #1e90ff 180deg 240deg,
+    #3742fa 240deg 300deg,
+    #a55eea 300deg 360deg
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerText {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.centerText h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.centerText p {
+  font-size: 13px;
+  color: #666;
+}
+
+.point {
+  position: absolute;
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+
+  .number {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Posisi lebih presisi berdasarkan trigonometri */
+.point1 {
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.point2 {
+  top: 40%;
+  right: -20px;
+  transform: translateY(-50%);
+}
+.point3 {
+  bottom: 10%;
+  right: 60px;
+  transform: translateY(50%);
+}
+.point4 {
+  bottom: 10%;
+  left: 60px;
+  transform: translate(-50%, 0);
+}
+.point5 {
+  bottom: 40%;
+  left: -20px;
+  transform: translateY(50%);
+}
+.point6 {
+  top: 5%;
+  left: 60px;
+  transform: translateY(-50%);
+}

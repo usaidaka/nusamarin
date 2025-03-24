@@ -1,0 +1,32 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  height: 50vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    font-size: 80px;
+    width: 60%;
+
+    .head {
+      font-size: 1.8rem;
+      margin: 0.5rem 0;
+      @include mixins.apply-at-xl-size {
+        font-size: 3.6rem;
+        margin: 0.5rem 0;
+      }
+    }
+  }
+
+  .text {
+    width: 60%;
+    text-align: justify;
+    font-size: 16px;
+  }
+}

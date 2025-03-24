@@ -197,6 +197,7 @@
   }
 
   /* Responsive Design */
+
   @include mixins.apply-at-md-size {
     .nav-links {
       display: flex;

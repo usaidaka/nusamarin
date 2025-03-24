@@ -39,9 +39,9 @@ const Navbar = () => {
         </div>
         <ul
           className={`${classes["nav-links"]} ${
-            isOpen ? classes["nav-active"] : ""
+            isOpen || !isMobile ? classes["nav-active"] : ""
           }`}
-          aria-expanded={isOpen}
+          // aria-expanded={isOpen}
         >
           <li onClick={() => setIsOpen(!isOpen)}>
             <Link
