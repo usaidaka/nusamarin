@@ -195,10 +195,10 @@
   /* Responsive Design */
   @include mixins.apply-at-md-size {
     .nav-links {
-      display: none;
+      display: flex;
       flex-direction: column;
       position: absolute;
-      top: 60px;
+      top: 80px;
       left: 0;
       width: 100%;
       background: #0d1b2a;
@@ -211,7 +211,9 @@
     }
 
     .nav-active {
-      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
     }
 
     .burger {
@@ -221,10 +223,10 @@
 
   @include mixins.apply-at-xs-size {
     .nav-links {
-      display: none;
+      display: flex;
       flex-direction: column;
       position: absolute;
-      top: 60px;
+      top: 80px;
       left: 0;
       width: 100%;
       background: #0d1b2a;
@@ -237,7 +239,9 @@
     }
 
     .nav-active {
-      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
     }
 
     .burger {
