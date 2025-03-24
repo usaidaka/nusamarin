@@ -3,11 +3,15 @@ import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import { MdExpandMore } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router";
+import { useLocation } from 'react-router'
 import { SiGoogletranslate } from "react-icons/si";
 import classes from "../styles/components/navbar.module.scss";
 import MenuLanguage from "./menuLanguage";
 
 const Navbar = () => {
+  const {pathname} = useLocation()
+
+  console.log(pathname)
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -38,7 +42,8 @@ const Navbar = () => {
         >
           <li>
             <Link
-              className={classes.a}
+              className={`${classes.a}
+               ${pathname === "/about" ? classes.active : "" }`}
               to="/about"
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -46,7 +51,14 @@ const Navbar = () => {
             </Link>
           </li>
           <li onClick={() => setIsOpen(!isOpen)}>
-            <a href="#">Our thesis</a>
+          <Link
+               className={`${classes.a}
+               ${pathname === "/thesis" ? classes.active : "" }`}
+              to="/thesis"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Our Thesis
+            </Link>
           </li>
           <div suppressHydrationWarning>
             {isMobile ? (

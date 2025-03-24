@@ -8,6 +8,7 @@ import {
 export default [
   index("routes/home.tsx"),
   route("about", "routes/about.tsx"),
+  route("thesis", "routes/thesis.tsx"),
 
   ...prefix("posts", [
     index("routes/posts.tsx"),
