@@ -29,6 +29,10 @@
 
     li {
       margin: 0 15px;
+      height: 46px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
 
       .a {
         text-decoration: none;
@@ -202,6 +206,8 @@
       text-align: start;
       height: fit-content;
       gap: 10px;
+      height: fit-content;
+      
     }
 
     .nav-active {
@@ -226,6 +232,8 @@
       text-align: start;
       height: fit-content;
       gap: 10px;
+      height: fit-content;
+      
     }
 
     .nav-active {
