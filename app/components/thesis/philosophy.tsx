@@ -18,26 +18,20 @@ const text = (
   </>
 );
 
-const Philosophy = () => {
-  const element = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: element,
-    offset: ["start 80%", "start center"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
+const Philosophy = () => {
 
   return (
     <div className={classes.main}>
       <div className={classes.title}>
-        <motion.p className={classes.head} ref={element} style={{ opacity }}>
+        <p className={classes.head}>
           {heading}
-        </motion.p>
+        </p>
       </div>
       <div className={classes.text}>
-        <motion.p className={classes.desc} ref={element} style={{ opacity }}>
+        <p className={classes.desc}>
           {text}
-        </motion.p>
+        </p>
       </div>
     </div>
   );

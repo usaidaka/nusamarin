@@ -13,11 +13,10 @@ const points = [
 
 const Goals = () => {
   return (
-    <div className={classes.container}>
+    <div className={classes.container} aria-label="Goals section">
       <div className={classes.circle}>
         <div className={classes.centerText}>
           <h2>Our Goal</h2>
-          <p>Coastal areas to be a better place for all</p>
         </div>
         {points.map((point, index) => (
           <motion.div
@@ -27,6 +26,7 @@ const Goals = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             viewport={{ once: true }}
+            aria-label={`Goal ${index + 1}`}
           >
             <span className={classes.number}>{index + 1}</span>
             <p>{point}</p>

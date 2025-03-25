@@ -27,6 +27,12 @@
     display: flex;
     list-style: none;
 
+    
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+  
+
     li {
       margin: 0 15px;
       height: 46px;
@@ -195,7 +201,7 @@
       background-color: #fca311;
     }
   }
-
+  
   /* Responsive Design */
 
   @include mixins.apply-at-md-size {
