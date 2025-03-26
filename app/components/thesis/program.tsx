@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useRef } from "react";
+import classes from "../../styles/components/thesis/program.module.scss";
+import { IoMdArrowDropright } from "react-icons/io";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const data = [
     {
         id: 1,
         title: "Onboarding a Sustainable Investment from Global Funds",
+        image: "/investment.jpg",
         tagline: "Catalyzing Growth with Responsible Capital",
         challenge: "Despite the immense potential of marine-based industries, many coastal and ocean economies remain underfunded due to investment risks, fragmented supply chains, and lack of scalable models.",
         approach: [
@@ -16,6 +20,7 @@ const data = [
     {
         id: 2,
         title: "Better Nutrient-Rich Food Resources for All",
+        image: "/nutrient-food.jpg",
         tagline: "Ensuring Food Security through Sustainable Aquaculture & Marine-Based Nutrition",
         challenge: "With the global population exceeding 8 billion, the demand for nutrient-rich, high-protein, and sustainable food is increasing. Yet, overfishing, pollution, and inefficient supply chains hinder food security.",
         approach: [
@@ -28,6 +33,7 @@ const data = [
     {
         id: 3,
         title: "Better Destinations for Sustainable Tourism Escape",
+        image: "/tourism.jpg",
         tagline: "Transforming Coastal Destinations into Eco-Friendly, Community-Driven Tourism Hubs",
         challenge: "Mass tourism has led to environmental degradation, cultural erosion, and economic disparity, leaving local communities with minimal benefits.",
         approach: [
@@ -40,6 +46,7 @@ const data = [
     {
         id: 4,
         title: "Better Carbon Capture & Storage for Global Carbon Footprint",
+        image: "/carbon-footprint.jpg",
         tagline: "Scaling Blue Carbon Solutions through Seaweed & Seagrass Farming",
         challenge: "Traditional carbon offsetting methods rely on land-based reforestation, which competes with agriculture and urban development. Oceans provide a more efficient solution for carbon sequestration.",
         approach: [
@@ -52,6 +59,7 @@ const data = [
     {
         id: 5,
         title: "Better Energy Resources from Solar-Powered Infrastructure",
+        image: "/solar-panel.jpg",
         tagline: "Bringing Renewable Energy to Coastal Communities for Economic Resilience",
         challenge: "Many coastal villages and small islands still lack access to reliable electricity, forcing them to rely on expensive and environmentally harmful diesel generators.",
         approach: [
@@ -64,6 +72,7 @@ const data = [
     {
         id: 6,
         title: "A Better Place for Coastal Communities & Livelihoods",
+        image: "/livelihoods.jpg",
         tagline: "Creating Inclusive Economic Opportunities & Long-Term Prosperity",
         challenge: "Coastal communities often face economic instability due to climate change, seasonal income, and lack of access to capital, leading to poverty and migration.",
         approach: [
@@ -76,11 +85,47 @@ const data = [
 ]
 
 const Program = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+    
+  const element = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: element,
+    offset: ["start 80%", "start center"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
 
-export default Program
+  return (
+    <motion.div className={classes.main}  ref={element} style={{ opacity }}>
+      <div className={classes.wrapper}>
+        {data.map((item) => (
+          <div key={item.id} className={classes.card}>
+            <img src={item.image} alt={item.title} className={classes.image} />
+            <h2 className={classes.title}>{item.title}</h2>
+            <p className={classes.tagline}>{item.tagline}</p>
+            <div className={classes.section}>
+              <h3>Challenge</h3>
+              <p>{item.challenge}</p>
+            </div>
+            <div className={classes.section}>
+              <h3>Approach</h3>
+              <ul>
+                {item.approach.map((step, index) => (
+                  <li key={index} className={classes.step}>
+                    <span><IoMdArrowDropright /></span>
+                    {step}
+                    </li>
+                ))}
+              </ul>
+            </div>
+            <div className={classes.section}>
+              <h3>Outcome</h3>
+              <p>{item.outcome}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+export default Program;
