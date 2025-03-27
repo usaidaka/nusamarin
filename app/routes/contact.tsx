@@ -1,9 +1,13 @@
 import React from "react";
+import classes from "../styles/pages/contact.module.scss";
+import Hero from "~/components/contact/hero";
+import Form from "~/components/contact/form";
 
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact</h1>
+    <div className={classes.main}>
+      <Hero />
+      <Form />
     </div>
   );
 };
