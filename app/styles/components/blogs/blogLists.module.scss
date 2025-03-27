@@ -1,0 +1,102 @@
+@use "../../../styles/base.scss";
+@use "../../../styles/media-mixins.scss" as mixins;
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  .list {
+    margin-top: 20px;
+    width: 90%;
+    min-height: 100vh;
+    @include mixins.apply-at-xl-size {
+      margin-top: 80px;
+      width: 50%;
+    }
+
+    h1 {
+      font-weight: bold;
+    }
+  }
+
+  .card {
+    width: 100%;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 24px 0;
+    gap: 24px;
+    .blog-content {
+      flex: 1;
+
+      .category {
+        background-color: #f2f2f2;
+        color: #444;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 12px 0 8px;
+      }
+
+      .excerpt {
+        font-size: 1rem;
+        color: #555;
+
+        .read-more {
+          color: #f15a29;
+          text-decoration: none;
+          margin-left: 4px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .reading-time {
+        font-size: 0.85rem;
+        color: #888;
+        margin-top: 10px;
+      }
+    }
+
+    .blog-image {
+      width: 300px;
+      min-width: 300px;
+
+      img {
+        width: 300px;
+        min-width: 300px;
+        height: 300px;
+        min-height: 300px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+
+      .blog-image {
+        width: 100%;
+        min-width: unset;
+        margin-top: 16px;
+      }
+    }
+  }
+}
