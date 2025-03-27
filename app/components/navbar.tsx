@@ -46,13 +46,19 @@ const Navbar = () => {
       </div>
       <ul
         className={`${classes["nav-links"]} ${
-          isOpen ? classes["nav-active"] : !isMobile ? classes["nav-active"] : ""
+          isOpen
+            ? classes["nav-active"]
+            : !isMobile
+            ? classes["nav-active"]
+            : ""
         }`}
         aria-expanded={isOpen}
       >
         <li onClick={() => setIsOpen(false)}>
           <Link
-            className={`${classes.a} ${pathname === "/about" ? classes.active : ""}`}
+            className={`${classes.a} ${
+              pathname === "/about" ? classes.active : ""
+            }`}
             to="/about"
           >
             About Us
@@ -60,7 +66,9 @@ const Navbar = () => {
         </li>
         <li onClick={() => setIsOpen(false)}>
           <Link
-            className={`${classes.a} ${pathname === "/thesis" ? classes.active : ""}`}
+            className={`${classes.a} ${
+              pathname === "/thesis" ? classes.active : ""
+            }`}
             to="/thesis"
           >
             Our Thesis
@@ -76,8 +84,12 @@ const Navbar = () => {
                 boxShadow: "none",
               }}
             >
-              <AccordionSummary expandIcon={<MdExpandMore style={{ color: "orange" }} />}>
-                Solutions
+              <AccordionSummary
+                expandIcon={<MdExpandMore style={{ color: "orange" }} />}
+              >
+                <Link to="/solution" onClick={() => setIsOpen(false)}>
+                  Solutions
+                </Link>
               </AccordionSummary>
               <AccordionDetails
                 sx={{
@@ -88,14 +100,30 @@ const Navbar = () => {
                 }}
               >
                 {[
-                  "Sustainable Nutrient-Rich Food Resource",
-                  "Offsetting Global Carbon Footprints",
-                  "Renewable Energy For Coastal Communities",
-                  "Remarkable Tourism Escape",
+                  {
+                    id: 1,
+                    subMenu: "Sustainable Nutrient-Rich Food Resource",
+                    redirect: "/solution/sustainable",
+                  },
+                  {
+                    id: 2,
+                    subMenu: "Offsetting Global Carbon Footprints",
+                    redirect: "/solution/carbon",
+                  },
+                  {
+                    id: 3,
+                    subMenu: "Renewable Energy For Coastal Communities",
+                    redirect: "/solution/energy",
+                  },
+                  {
+                    id: 4,
+                    subMenu: "Remarkable Tourism Escape",
+                    redirect: "/solution/tourism",
+                  },
                 ].map((item) => (
-                  <a
-                    key={item}
-                    href="#"
+                  <Link
+                    key={item.id}
+                    to={item.redirect}
                     style={{
                       color: "white",
                       textDecoration: "none",
@@ -103,27 +131,48 @@ const Navbar = () => {
                     }}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item}
-                  </a>
+                    {item.subMenu}
+                  </Link>
                 ))}
               </AccordionDetails>
             </Accordion>
           ) : (
-            <li className={classes.dropdown}>
-              <a href="#" className={classes["nav-item"]}>
+            <li className={`${classes.dropdown} `}>
+              <Link
+                to="/solution"
+                className={`${classes["nav-item"]} ${classes.a} ${
+                  pathname.includes("/solution") ? classes.active : ""
+                }`}
+              >
                 Solutions
                 <MdExpandMore style={{ color: "orange", fontWeight: "bold" }} />
-              </a>
+              </Link>
               <div className={classes["dropdown-menu"]}>
                 {[
-                  { menu: "Sustainable Nutrient-Rich Food Resource", src: "/sustainability.png" },
-                  { menu: "Offsetting Global Carbon Footprints", src: "/globalCarbon.png" },
-                  { menu: "Renewable Energy For Coastal Communities", src: "/renewableEnergy.png" },
-                  { menu: "Remarkable Tourism Escape", src: "/tourismEscape.png" },
+                  {
+                    menu: "Sustainable Nutrient-Rich Food Resource",
+                    src: "/sustainability.png",
+                    redirect: "/solution/sustainable",
+                  },
+                  {
+                    menu: "Offsetting Global Carbon Footprints",
+                    src: "/globalCarbon.png",
+                    redirect: "/solution/carbon",
+                  },
+                  {
+                    menu: "Renewable Energy For Coastal Communities",
+                    src: "/renewableEnergy.png",
+                    redirect: "/solution/energy",
+                  },
+                  {
+                    menu: "Remarkable Tourism Escape",
+                    src: "/tourismEscape.png",
+                    redirect: "/solution/tourism",
+                  },
                 ].map((item) => (
                   <div className={classes.menu} key={item.menu}>
                     <img src={item.src} alt={item.menu} />
-                    <a href="#">{item.menu}</a>
+                    <Link to={item.redirect}>{item.menu}</Link>
                   </div>
                 ))}
               </div>
@@ -131,18 +180,43 @@ const Navbar = () => {
           )}
         </div>
         <li onClick={() => setIsOpen(false)}>
-          <a href="#">Sustainability</a>
+          <Link
+            className={`${classes.a} ${
+              pathname === "/sustainability" ? classes.active : ""
+            }`}
+            to="/sustainability"
+          >
+            Sustainability
+          </Link>
         </li>
         <li onClick={() => setIsOpen(false)}>
-          <a href="#">Blog</a>
+          <Link
+            className={`${classes.a} ${
+              pathname === "/blogs" ? classes.active : ""
+            }`}
+            to="/blogs"
+          >
+            Blog
+          </Link>
         </li>
         <li onClick={() => setIsOpen(false)}>
-          <a href="#">Contact</a>
+          <Link
+            className={`${classes.a} ${
+              pathname === "/contact" ? classes.active : ""
+            }`}
+            to="/contact"
+          >
+            Contact
+          </Link>
         </li>
       </ul>
 
       <div className={classes.cta}>
-        <img src="/deliver-quality.png" alt="" className={classes["tag-line"]} />
+        <img
+          src="/deliver-quality.png"
+          alt=""
+          className={classes["tag-line"]}
+        />
       </div>
     </nav>
   );

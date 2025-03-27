@@ -1,11 +1,11 @@
 import React from "react";
 
-const Post = () => {
+const Energy = () => {
   return (
     <div>
-      <h1>Post page</h1>
+      <h1>Energy</h1>
     </div>
   );
 };
 
-export default Post;
+export default Energy;
