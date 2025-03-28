@@ -109,37 +109,41 @@ const Program = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [0.1, 1]);
 
   return (
-    <motion.div className={classes.main} ref={element} style={{ opacity }}>
-      <div className={classes.wrapper}>
-        {data.map((item) => (
-          <div key={item.id} className={classes.card}>
-            <img src={item.image} alt={item.title} className={classes.image} />
-            <h2 className={classes.title}>{item.title}</h2>
-            <p className={classes.tagline}>{item.tagline}</p>
-            <div className={classes.section}>
-              <h3>Challenge</h3>
-              <p>{item.challenge}</p>
+    <motion.div ref={element} style={{ opacity }}>
+      {data.map((item) => (
+        <div className={classes.main}>
+          <div
+            className={`${classes.wrapper} ${
+              item.id % 2 === 0 ? classes["wrapper-even"] : ""
+            }`}
+          >
+            <div className={classes.text}>
+              <div className={classes.number}>
+                <h1>{item.id}</h1>
+              </div>
+              <div>
+                <h1>{item.title}</h1>
+                <h2>{item.tagline}</h2>
+                <p>{item.challenge}</p>
+                <div className={classes.tagline}>
+                  {item.approach?.map((item) => (
+                    <div>
+                      <span>
+                        <IoMdArrowDropright />
+                      </span>
+                      <p>{item}</p>
+                    </div>
+                  ))}
+                </div>
+                <p>{item.approach}</p>
+              </div>
             </div>
-            <div className={classes.section}>
-              <h3>Approach</h3>
-              <ul>
-                {item.approach.map((step, index) => (
-                  <li key={index} className={classes.step}>
-                    <span>
-                      <IoMdArrowDropright />
-                    </span>
-                    {step}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className={classes.section}>
-              <h3>Outcome</h3>
-              <p>{item.outcome}</p>
+            <div className={classes.image}>
+              <img src={item.image} alt="" />
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </motion.div>
   );
 };

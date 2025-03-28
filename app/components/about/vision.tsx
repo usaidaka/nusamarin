@@ -1,48 +1,17 @@
-import React, { useEffect, useRef } from "react";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
-import Lenis from "lenis";
 import classes from "../../styles/components/about/vision.module.scss";
 
-interface SectionProps {
-  scrollYProgress: MotionValue<number>;
-}
-
 const Vision = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   return (
-    <main ref={containerRef} className={classes.main}>
-      <Section1 scrollYProgress={scrollYProgress} />
-      <Section2 scrollYProgress={scrollYProgress} />
+    <main className={classes.main}>
+      <Section1 />
+      <Section2 />
     </main>
   );
 };
 
-const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
-
+const Section1 = () => {
   return (
-    <motion.div style={{ scale, rotate }} className={classes["first-section"]}>
+    <div className={classes["first-section"]}>
       <div className={classes["main-wrapper"]}>
         <div className={classes.vision}>
           <h1>NUSAMARIN's Vision</h1>
@@ -76,16 +45,13 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
-const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
-  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
-
+const Section2 = () => {
   return (
-    <motion.div style={{ scale, rotate }} className={classes["second-section"]}>
+    <div className={classes["second-section"]}>
       <div className={classes["main-wrapper"]}>
         <div className={classes.text}>
           <p>
@@ -114,7 +80,7 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

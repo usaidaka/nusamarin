@@ -11,8 +11,8 @@
   align-items: start;
   margin: 0.5rem 0;
   @include mixins.apply-at-xl-size {
-  width: 40%;
-  height: 70vh;
+    width: 40%;
+    height: 70vh;
   }
 
   .title {

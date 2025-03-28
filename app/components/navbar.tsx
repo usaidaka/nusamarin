@@ -139,7 +139,7 @@ const Navbar = () => {
           ) : (
             <li className={`${classes.dropdown} `}>
               <Link
-                to="/solution"
+                to=""
                 className={`${classes["nav-item"]} ${classes.a} ${
                   pathname.includes("/solution") ? classes.active : ""
                 }`}

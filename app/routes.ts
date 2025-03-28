@@ -11,17 +11,13 @@ export default [
   route("thesis", "routes/thesis.tsx"),
   route("contact", "routes/contact.tsx"),
   route("sustainability", "routes/sustainability.tsx"),
+  route("solution/sustainable", "routes/solution/sustainable.tsx"),
+  route("solution/energy", "routes/solution/energy.tsx"),
+  route("solution/tourism", "routes/solution/tourism.tsx"),
+  route("solution/carbon", "routes/solution/carbon.tsx"),
 
   ...prefix("blogs", [
     index("routes/blogs/index.tsx"),
     route(":blog_id", "routes/blogs/blog.tsx"),
-  ]),
-
-  ...prefix("solution", [
-    index("routes/solution/index.tsx"),
-    route("sustainable", "routes/solution/sustainable.tsx"),
-    route("energy", "routes/solution/energy.tsx"),
-    route("tourism", "routes/solution/tourism.tsx"),
-    route("carbon", "routes/solution/carbon.tsx"),
   ]),
 ] satisfies RouteConfig;

@@ -47,7 +47,7 @@
     img {
       width: 70%;
       @include mixins.apply-at-xl-size {
-        width: 80%;
+        width: 50%;
       }
     }
 
@@ -55,7 +55,7 @@
       font-size: 0.7rem;
       margin: 0.5rem 0;
       @include mixins.apply-at-xl-size {
-        font-size: 2rem;
+        font-size: 1.4rem;
         margin: 0.5rem 0;
       }
     }
